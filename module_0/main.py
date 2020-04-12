@@ -1,4 +1,4 @@
-def game_core_v3(number):
+п»їdef game_core_v3(number):
     count=1
     predict = np.random.randint(1,101)
     
@@ -12,19 +12,19 @@ def game_core_v3(number):
         elif predict > number: 
             ls=list(filter(lambda x: x !=predict,ls[:ls.index(predict)]))
             predict=ls[round(ls.index(max(ls))/2)]        
-    return(count) # выход из цикла, если угадали  
+    return(count) # РІС‹С…РѕРґ РёР· С†РёРєР»Р°, РµСЃР»Рё СѓРіР°РґР°Р»Рё  
 
 
       
 def score_game(game_core):
-    '''Запускаем игру 1000 раз, чтобы узнать, как быстро игра угадывает число'''
+    '''Р—Р°РїСѓСЃРєР°РµРј РёРіСЂСѓ 1000 СЂР°Р·, С‡С‚РѕР±С‹ СѓР·РЅР°С‚СЊ, РєР°Рє Р±С‹СЃС‚СЂРѕ РёРіСЂР° СѓРіР°РґС‹РІР°РµС‚ С‡РёСЃР»Рѕ'''
     count_ls = []
-    np.random.seed(1)  # фиксируем RANDOM SEED, чтобы ваш эксперимент был воспроизводим!
+    np.random.seed(1)  # С„РёРєСЃРёСЂСѓРµРј RANDOM SEED, С‡С‚РѕР±С‹ РІР°С€ СЌРєСЃРїРµСЂРёРјРµРЅС‚ Р±С‹Р» РІРѕСЃРїСЂРѕРёР·РІРѕРґРёРј!
     random_array = np.random.randint(1,101, size=(1000))
     for number in random_array:
         count_ls.append(game_core(number))
     score = int(np.mean(count_ls))
-    print(f"Ваш алгоритм угадывает число в среднем за {score} попыток")
+    print(f"Р’Р°С€ Р°Р»РіРѕСЂРёС‚Рј СѓРіР°РґС‹РІР°РµС‚ С‡РёСЃР»Рѕ РІ СЃСЂРµРґРЅРµРј Р·Р° {score} РїРѕРїС‹С‚РѕРє")
     return(score)
 
 
