@@ -42,8 +42,22 @@ def game_core_v3(number):
     return(count) # выход из цикла, если угадали  
 
 
+def game_core_v4(number):
+    '''Угадываем число с использованием алгоритма бинарного поиска'''
+    count=0
+    first=1
+    last=100
+    predict=(first+last)//2
+    while number != predict:
+        count+=1
+        predict=(first+last)//2
+        if predict>number:
+            last=predict-1
+        else:
+            first=predict+1
+    return(count) # выход из цикла, если угадали 
       
-def score_game(number):
+def score_game(game_core):
     '''Запускаем игру 1000 раз, чтобы узнать, как быстро игра угадывает число'''
     count_ls = []
     np.random.seed(1)  # фиксируем RANDOM SEED, чтобы ваш эксперимент был воспроизводим!
